@@ -1,20 +1,28 @@
 def count_specific_word(text, word):
     # Split the text into words and count the occurrences of the specific word
     words = text.split()
-    return words.count(word)
+    count = 0
+    i = 0
+    while i < len(words):          # While loop
+        if words[i] == word:       # if/else statement
+            count += 1
+        i += 1
+    return count
 
 
 def calculate_average_word_length(text):
     # Split the text into words and calculate the total length and count of words
     words = text.split()
-    total_length = sum(len(word) for word in words)
+    total_length = 0
+    for word in words:            
+        total_length += len(word)
     word_count = len(words)
 
     # Avoid division by zero
-    if word_count == 0:
+    if word_count == 0:           
         return 0.0
-
-    return total_length / word_count
+    else:
+        return total_length / word_count
 
 
 def count_paragraphs(text):
@@ -26,7 +34,7 @@ def count_paragraphs(text):
 def count_sentences(text):
     # Split the text into sentences based on punctuation marks
     sentences = text.split('.')
-    return len(sentences) - 1  # Subtract 1 to account for the last split being empty if text ends with a period
+    return len(sentences) - 1 
 
 
 # Entry point for testing the functions
@@ -55,6 +63,3 @@ if __name__ == "__main__":
     # Test the count_sentences function
     sentence_count = count_sentences(sample_text)
     print(f"The number of sentences in the text is {sentence_count}.")
-
-
-    
